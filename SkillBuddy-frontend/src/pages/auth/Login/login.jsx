@@ -84,7 +84,7 @@ const Login = () => {
 
               <div className="login-action">
                 <Button
-                  className="btnn-colors w-100 text-uppercase"
+                  className="btn-colors w-100 text-uppercase"
                   type="submit"
                 >
                   Login
@@ -96,7 +96,7 @@ const Login = () => {
               </div>
 
               <div className="login-action">
-                <a href="/signup" className="btn btnn-colors w-100 text-uppercase">
+                <a href="/signup" className="btn btn-colors w-100 text-uppercase">
                   SIGN UP
                 </a>
               </div>

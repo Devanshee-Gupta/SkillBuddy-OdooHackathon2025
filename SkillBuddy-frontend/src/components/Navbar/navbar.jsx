@@ -8,6 +8,9 @@ const NavbarComponent = () => {
   const navigate = useNavigate();
   const isProfilePage = location.pathname === "/my-profile";
 
+  const sessionKey = localStorage.getItem("session_key");
+  const isLoggedIn = !!sessionKey;
+
   const handleSave = () => {
     console.log("Save");
   };
@@ -23,6 +26,10 @@ const NavbarComponent = () => {
 
   const handleProfileRedirect = () => {
     navigate("/my-profile");
+  };
+
+  const handleLoginRedirect = () => {
+    navigate("/login");
   };
 
   return (
@@ -42,18 +49,30 @@ const NavbarComponent = () => {
                 <Button variant="danger" size="sm" onClick={handleDiscard}>Discard</Button>
               </>
             )}
-            <Button variant="outline-secondary" size="sm" onClick={handleSwapRequest}>Requests</Button>
+
             <Nav.Link href="/home" className="nav-link-custom">Home</Nav.Link>
-            <div className="d-inline-block" onClick={handleProfileRedirect} role="button">
-              <Image
-                src="https://avatars.githubusercontent.com/u/9919?v=4"
-                roundedCircle
-                width={40}
-                height={40}
-                alt="Profile"
-                className="profile-avatar"
-              />
-            </div>
+
+            {isLoggedIn ? (
+              <>
+                <Button variant="outline-secondary" size="sm" onClick={handleSwapRequest}>
+                  Requests
+                </Button>
+                <div className="d-inline-block" onClick={handleProfileRedirect} role="button">
+                  <Image
+                    src="https://avatars.githubusercontent.com/u/9919?v=4"
+                    roundedCircle
+                    width={40}
+                    height={40}
+                    alt="Profile"
+                    className="profile-avatar"
+                  />
+                </div>
+              </>
+            ) : (
+              <Button variant="outline-primary" size="sm" onClick={handleLoginRedirect}>
+                Login
+              </Button>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

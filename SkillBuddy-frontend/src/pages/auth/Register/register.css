@@ -1,38 +1,16 @@
+/* Sign Up Page Styling */
+
 .cardss {
   background-color: #fff;
   border-radius: 10px;
   padding: 30px;
- width: 65%;
+  width: 65%;
 }
 
-.cardss.btn {
-  margin-top: 20px;
-}
-
-
-.location-box {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.locate-me img {
-  width: 20px;
-  margin-left: 10px;
-}
-
-.new-acc a {
-  text-decoration: none;
-  color: #007bff;
-}
-
-.new-acc a:hover {
-  text-decoration: underline;
-}
-
-.text-50 {
-  font-size: 14px;
-  color: #6c757d;
+@media (max-width: 767px) {
+  .cardss {
+    width: 100%;
+  }
 }
 
 .input_heading {
@@ -43,59 +21,29 @@
   font-size: 15px !important;
   border-bottom: 1px solid rgb(160 160 160 / 30%) !important;
   outline: none !important;
+  background: transparent !important;
 }
 
 .inputes-box:focus {
   border-color: rgb(34, 32, 32) !important;
 }
 
-.address_input:focus {
-  border: 2px solid rgb(34, 32, 32) !important;
+.btnn-colors {
+  background-color: #0dcaf0 !important;
+}
+/* Updated button styling */
+.btnn-colors {
+  /* background-color: #0dcaf0 !important; */
+  color: white !important;
+  padding: 10px 16px !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 6px;
 }
 
-
-
-.send_Otp_button {
-  background: #01664a !important;
+/* Padding control for button containers */
+.login-btn-container,
+.signup-btn-container {
+  padding: 0 !important;
 }
-
-.send_Otp_button {
-  border: 2px solid #01664a !important;
-}
-
-.locate-me {
-  position: absolute;
-  right: 38px;
-  top: 02px;
-  /* bottom: 25px; */
-  line-height: 56px;
-  font-size: 14px;
-  letter-spacing: 0.05em;
-  color: #505056;
-  cursor: pointer;
-}
-
-@media (max-width: 767px) {
-  .address_input{
-    font-size :12px
-  }
-  .locate-me {
-    position: absolute;
-    right: 29px;
-    top: -2px;
-    /* bottom: 25px; */
-    line-height: 56px;
-    font-size: 12px;
-    letter-spacing: 0.05em;
-    color: #505056;
-    cursor: pointer;
-}
-.cardss {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 30px;
-  width: 100%;
-}
-}
-
-
