@@ -235,4 +235,63 @@ def get_received_requests(request):
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 
+# ADD A SKILL
+@csrf_exempt
+@api_view(['POST'])
+def add_skill(request):
+    session_key = request.data.get("session_key")
+    SkillName = request.data.get("SkillName")
+    Desc = request.data.get("Desc", "")  # Optional: fallback to empty
+    SkillType = request.data.get("SkillType")
 
+    if not validation(session_key):
+        return Response({
+            "success": False,
+            "error": "Please login"
+        }, status=status.HTTP_401_UNAUTHORIZED)
+
+    if not SkillName or not SkillType:
+        return Response({
+            "success": False,
+            "error": "SkillName and SkillType are required"
+        }, status=status.HTTP_400_BAD_REQUEST)
+
+    if SkillType not in ["offered", "wanted"]:
+        return Response({
+            "success": False,
+            "error": "Invalid SkillType"
+        }, status=status.HTTP_400_BAD_REQUEST)
+
+    session = Session.objects.get(session_key=session_key)
+    session_data = session.get_decoded()
+    email = session_data['Email']
+    user = User.objects.get(Email=email)
+
+    skill, created = Skill.objects.get_or_create(
+        SkillName=SkillName,
+        defaults={"Desc": Desc}
+    )
+
+    user_skill_exists = UserSkill.objects.filter(
+        UserId=user,
+        SkillId=skill,
+    ).exists()
+
+    if user_skill_exists:
+        return Response({
+            "success": False,
+            "message": "Skill already added for this user"
+        }, status=status.HTTP_200_OK)
+
+    UserSkill.objects.create(
+        UserId=user,
+        SkillId=skill,
+        SkillType=SkillType
+    )
+
+    return Response({
+        "success": True,
+        "message": "Skill added successfully",
+        "skill_id": skill.SkillId,
+        "user_id": user.UserId
+    }, status=status.HTTP_201_CREATED)
