@@ -11,8 +11,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { toast, ToastContainer } from "react-toastify";
 import "./register.css";
 import { registerUser } from "../../../services/api";
+import { useNavigate } from "react-router-dom";
 
 const SignUpForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     FirstName: "",
     LastName: "",
@@ -31,8 +33,10 @@ const SignUpForm = () => {
     e.preventDefault();
     try {
       const res = await registerUser(formData);
-      toast.success("Registered successfully!");
-      console.log(res.data);
+      toast.success(res.data?.message || "Registered successfully!");
+      setTimeout(() => {
+        navigate("/login");
+      }, 300);
     } catch (err) {
       toast.error(err.response?.data?.message || "Registration failed");
     }

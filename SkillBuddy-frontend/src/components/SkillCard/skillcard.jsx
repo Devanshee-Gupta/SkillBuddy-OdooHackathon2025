@@ -62,9 +62,9 @@ const SkillCard = () => {
             <Button variant="info" className="text-white rounded-3 request-btn" onClick={handleOpenModal}>
               Request ➤
             </Button>
-            <div className="mt-2 rating-text">
+            {/* <div className="mt-2 rating-text">
               Rating <strong>5/5</strong>
-            </div>
+            </div> */}
           </Col>
         </Row>
       </Card>

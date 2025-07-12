@@ -10,8 +10,8 @@ const SentRequestCard = ({
   imageUrl = "https://avatars.githubusercontent.com/u/9919?v=4"
 }) => {
   return (
-    <Container className="my-3 d-flex justify-content-center">
-      <Card className="sent-card shadow-lg border-0 rounded-4 p-4 w-100" style={{ maxWidth: "1200px" }}>
+    <Container className="my-3">
+      <Card className="sent-card shadow-lg border-0 rounded-4 p-4 w-100">
         <Row className="align-items-center">
           <Col md={2} className="text-center mb-3 mb-md-0">
             <Image

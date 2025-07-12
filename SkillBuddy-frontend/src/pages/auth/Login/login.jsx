@@ -11,8 +11,10 @@ import "./Login.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { loginUser } from "../../../services/api";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     Email: "",
     Password: "",
@@ -29,12 +31,22 @@ const Login = () => {
     e.preventDefault();
 
     try {
-         const res = await loginUser(formData);
-         toast.success("Logged in successfully!");
-         console.log(res.data);
-       } catch (err) {
-         toast.error(err.response?.data?.message || "Login failed");
-       }
+      const res = await loginUser(formData);
+      const sessionKey = res.data?.session_key;
+
+      if (sessionKey) {
+        localStorage.setItem("session_key", sessionKey);
+        toast.success(res.data?.message || "Logged in successfully!");
+
+        setTimeout(() => {
+          navigate("/home");
+        }, 2000);
+      } else {
+        toast.error("Session key missing in response.");
+      }
+    } catch (err) {
+      toast.error(err.response?.data?.message || "Login failed");
+    }
   };
 
   return (
@@ -70,9 +82,9 @@ const Login = () => {
                 />
               </Form.Group>
 
-              <div className="d-flex justify-content-center btnn-colors p-3 mt-4">
+              <div className="login-action">
                 <Button
-                  className="border-0 bg-transparent text-white btnn-colors w-100 text-uppercase"
+                  className="btnn-colors w-100 text-uppercase"
                   type="submit"
                 >
                   Login
@@ -83,14 +95,12 @@ const Login = () => {
                 <span className="d-flex justify-content-center">OR</span>
               </div>
 
-              <div className="d-flex justify-content-center btnn-colors mt-4 mb-3 p-3">
-                <a
-                  href="/signup"
-                  className="btn text-white w-100 text-uppercase"
-                >
+              <div className="login-action">
+                <a href="/signup" className="btn btnn-colors w-100 text-uppercase">
                   SIGN UP
                 </a>
               </div>
+
             </Form>
           </Card>
         </Col>

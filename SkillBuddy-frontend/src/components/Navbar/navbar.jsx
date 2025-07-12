@@ -28,26 +28,34 @@ const NavbarComponent = () => {
   return (
     <Navbar expand="lg" className="theme-navbar shadow-sm py-3" sticky="top">
       <Container fluid className="px-4">
-        <Navbar.Brand href="/home" className="fw-bold fs-4 text-dark">Skill Buddy</Navbar.Brand>
-        <Nav className="ms-auto d-flex align-items-center gap-3">
-          {isProfilePage && (
-            <>
-              <Button className="btnn-colors btn-sm" onClick={handleSave}>Save</Button>
-              <Button variant="danger" size="sm" onClick={handleDiscard}>Discard</Button>
-            </>
-          )}
-          <Button variant="outline-secondary" size="sm" onClick={handleSwapRequest}>Requests</Button>
-          <Nav.Link href="/home" className="nav-link-custom">Home</Nav.Link>
-          <Image
-            src="https://avatars.githubusercontent.com/u/9919?v=4"
-            roundedCircle
-            width={40}
-            height={40}
-            alt="Profile"
-            className="profile-avatar"
-            onClick={handleProfileRedirect}
-          />
-        </Nav>
+        <Navbar.Brand href="/home" className="fw-bold fs-4 text-dark">
+          Skill Buddy
+        </Navbar.Brand>
+
+        <Navbar.Toggle aria-controls="navbar-content" />
+
+        <Navbar.Collapse id="navbar-content">
+          <Nav className="ms-auto d-flex align-items-center gap-3 mt-3 mt-lg-0">
+            {isProfilePage && (
+              <>
+                <Button className="btnn-colors btn-sm" onClick={handleSave}>Save</Button>
+                <Button variant="danger" size="sm" onClick={handleDiscard}>Discard</Button>
+              </>
+            )}
+            <Button variant="outline-secondary" size="sm" onClick={handleSwapRequest}>Requests</Button>
+            <Nav.Link href="/home" className="nav-link-custom">Home</Nav.Link>
+            <div className="d-inline-block" onClick={handleProfileRedirect} role="button">
+              <Image
+                src="https://avatars.githubusercontent.com/u/9919?v=4"
+                roundedCircle
+                width={40}
+                height={40}
+                alt="Profile"
+                className="profile-avatar"
+              />
+            </div>
+          </Nav>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );

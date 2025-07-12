@@ -1,20 +1,13 @@
 .theme-navbar {
   background-color: #ffffff !important;
-  border-bottom: 1px solid #e5e5e5;
-  transition: box-shadow 0.3s ease;
-  z-index: 1000;
-}
-
-.navbar-brand {
-  color: #333 !important;
-  font-weight: bold;
-  font-size: 1.6rem;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .nav-link-custom {
-  color: #333 !important;
+  color: #212529 !important;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: 0.2s ease;
 }
 
 .nav-link-custom:hover {
@@ -23,15 +16,10 @@
 
 .btnn-colors {
   background-color: #01664a !important;
-  color: #fff !important;
+  color: white !important;
   font-weight: bold;
   border: none;
   text-transform: uppercase;
-  transition: background-color 0.3s ease;
-}
-
-.btnn-colors:hover {
-  background-color: #014e39 !important;
 }
 
 .btn-danger {
@@ -39,22 +27,8 @@
   font-weight: bold;
 }
 
-.profile-avatar {
-  border: 2px solid #ccc;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-}
-
-.profile-avatar:hover {
-  transform: scale(1.05);
-}
-
 @media (max-width: 768px) {
-  .theme-navbar {
-    padding: 0.75rem 1rem;
-  }
-
-  .nav-link-custom {
-    font-size: 0.9rem;
+  .navbar-collapse {
+    margin-top: 1rem;
   }
 }
