@@ -1,0 +1,34 @@
+.theme-navbar {
+  background-color: #ffffff !important;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.nav-link-custom {
+  color: #212529 !important;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.nav-link-custom:hover {
+  color: #01b982 !important;
+}
+
+.btnn-colors {
+  background-color: #01664a !important;
+  color: white !important;
+  font-weight: bold;
+  border: none;
+  text-transform: uppercase;
+}
+
+.btn-danger {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .navbar-collapse {
+    margin-top: 1rem;
+  }
+}

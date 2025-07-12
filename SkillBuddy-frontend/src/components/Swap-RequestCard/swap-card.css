@@ -1,0 +1,30 @@
+.swap-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  color: #212529;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.swap-card:hover {
+  transform: translateY(-4px);
+}
+
+.profile-photo-container img {
+  border: 2px solid #dee2e6;
+  object-fit: cover;
+}
+
+.rating-text {
+  margin-top: 0.5rem;
+  font-size: 14px;
+  color: #555;
+}
+
+.skill-badge {
+  font-size: 13px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background-color: #f8f9fa !important;
+  font-weight: 500;
+}

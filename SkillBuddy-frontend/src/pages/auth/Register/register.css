@@ -1,0 +1,49 @@
+/* Sign Up Page Styling */
+
+.cardss {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  width: 65%;
+}
+
+@media (max-width: 767px) {
+  .cardss {
+    width: 100%;
+  }
+}
+
+.input_heading {
+  color: rgba(78, 78, 78, 0.788) !important;
+}
+
+.inputes-box {
+  font-size: 15px !important;
+  border-bottom: 1px solid rgb(160 160 160 / 30%) !important;
+  outline: none !important;
+  background: transparent !important;
+}
+
+.inputes-box:focus {
+  border-color: rgb(34, 32, 32) !important;
+}
+
+.btnn-colors {
+  background-color: #0dcaf0 !important;
+}
+/* Updated button styling */
+.btnn-colors {
+  /* background-color: #0dcaf0 !important; */
+  color: white !important;
+  padding: 10px 16px !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 6px;
+}
+
+/* Padding control for button containers */
+.login-btn-container,
+.signup-btn-container {
+  padding: 0 !important;
+}
