@@ -1,0 +1,20 @@
+.sent-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  color: #212529;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.sent-card:hover {
+  transform: translateY(-4px);
+}
+
+.skill-badge {
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background-color: #f8f9fa !important;
+  font-weight: 500;
+  border: 1px solid #adb5bd;
+}

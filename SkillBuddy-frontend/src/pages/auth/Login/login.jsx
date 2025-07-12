@@ -10,6 +10,7 @@ import {
 import "./Login.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { loginUser } from "../../../services/api";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -24,19 +25,16 @@ const Login = () => {
     }));
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    if (!formData.email || !formData.password) {
-      toast.error("Please fill in all fields");
-      return;
-    }
-
-    if (formData.email === "admin@gmail.com" && formData.password === "123456") {
-      toast.success("Login successful!");
-    } else {
-      toast.error("Invalid email or password");
-    }
+    try {
+         const res = await loginUser(formData);
+         toast.success("Logged in successfully!");
+         console.log(res.data);
+       } catch (err) {
+         toast.error(err.response?.data?.message || "Login failed");
+       }
   };
 
   return (
@@ -82,7 +80,7 @@ const Login = () => {
               </div>
 
               <div className="or-line mt-3">
-                <span>OR</span>
+                <span className="d-flex justify-content-center">OR</span>
               </div>
 
               <div className="d-flex justify-content-center btnn-colors mt-4 mb-3 p-3">

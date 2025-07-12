@@ -1,34 +1,37 @@
-/* Navbar.css */
-
 .theme-navbar {
-  background-color: #121212 !important; 
-  padding: 1rem;
-  color: #fff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #e5e5e5;
+  transition: box-shadow 0.3s ease;
+  z-index: 1000;
 }
 
 .navbar-brand {
-  color: #fff !important;
+  color: #333 !important;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
 
 .nav-link-custom {
-  color: #ffffff !important;
+  color: #333 !important;
   font-weight: 500;
-  transition: 0.2s ease;
+  transition: color 0.3s ease;
 }
 
 .nav-link-custom:hover {
-  color: #01b982 !important; 
+  color: #01b982 !important;
 }
 
 .btnn-colors {
   background-color: #01664a !important;
-  color: white !important;
+  color: #fff !important;
   font-weight: bold;
   border: none;
   text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.btnn-colors:hover {
+  background-color: #014e39 !important;
 }
 
 .btn-danger {
@@ -36,8 +39,22 @@
   font-weight: bold;
 }
 
+.profile-avatar {
+  border: 2px solid #ccc;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.profile-avatar:hover {
+  transform: scale(1.05);
+}
+
 @media (max-width: 768px) {
   .theme-navbar {
-    padding: 0.75rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .nav-link-custom {
+    font-size: 0.9rem;
   }
 }
