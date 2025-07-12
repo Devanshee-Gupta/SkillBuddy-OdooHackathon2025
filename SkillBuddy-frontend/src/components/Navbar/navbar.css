@@ -1,0 +1,43 @@
+/* Navbar.css */
+
+.theme-navbar {
+  background-color: #121212 !important; 
+  padding: 1rem;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.navbar-brand {
+  color: #fff !important;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.nav-link-custom {
+  color: #ffffff !important;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.nav-link-custom:hover {
+  color: #01b982 !important; 
+}
+
+.btnn-colors {
+  background-color: #01664a !important;
+  color: white !important;
+  font-weight: bold;
+  border: none;
+  text-transform: uppercase;
+}
+
+.btn-danger {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .theme-navbar {
+    padding: 0.75rem;
+  }
+}

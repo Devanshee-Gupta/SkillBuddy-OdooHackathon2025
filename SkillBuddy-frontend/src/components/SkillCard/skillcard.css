@@ -1,0 +1,36 @@
+.custom-card {
+  border: 2px solid #ccc;
+  box-shadow: 0 0 10px #666;
+}
+
+.profile-photo {
+  width: 100px;
+  height: 100px;
+  border: 3px solid #ccc;
+  border-radius: 50%;
+  background-color: #333;
+  color: #fff;
+  line-height: 100px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.skill-badge {
+  font-size: 13px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background-color: #444 !important;
+  border: 1px solid #fff;
+}
+
+.request-btn {
+  padding: 8px 16px;
+  font-weight: bold;
+  background-color: #017b8b !important;
+  border: none;
+}
+
+.rating-text {
+  margin-top: 5px;
+  font-size: 14px;
+}

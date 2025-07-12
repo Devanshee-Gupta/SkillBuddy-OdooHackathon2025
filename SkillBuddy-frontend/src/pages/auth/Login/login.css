@@ -1,0 +1,4 @@
+.login_page { width: 65%; }
+.inputes-box { border-bottom: 1px solid rgba(160,160,160,0.3); }
+.btnn-colors { background: #01664a; color: white; }
+@media (max-width: 767px) { .login_page { width: 100%; } }
