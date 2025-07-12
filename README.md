@@ -1,6 +1,6 @@
 # ODOO HACKATHON 2025 - SKILL SWAP PLATFORM (Problem Statement 1) 
 
-* **Team Name** - DOZO
+* **Team Name** - DOZO (Team 2517)
 * **Email** - devansheegupta0@gmail.com
 * **Project Name** - SkillBuddy
 * **Technology Used** - (React.js - Python,Django,Django REST - sqlite)
@@ -103,10 +103,14 @@ Run these commands -
 
     # Windows
         cd backend
+        python manage.py makemigrations
+        python manage.py migrate
         python manage.py runserver
 
     # macOS/Linux
         cd backend
+        python3 manage.py makemigrations
+        python3 manage.py migrate
         python3 manage.py runserver
 
 You can see your server running on http://127.0.0.1:8000.
