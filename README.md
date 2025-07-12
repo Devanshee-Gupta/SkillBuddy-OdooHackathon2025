@@ -124,3 +124,8 @@ If you want to change the server’s port, pass port number -
     # macOS/Linux
         python3 manage.py runserver [port_number]
 
+
+## Link to video
+
+https://www.loom.com/share/c8b2e03b078f477eba2dd4279b35b5ea?sid=86a216ed-28c5-4749-a2c9-77b5c09d25f4
+
