@@ -9,4 +9,5 @@ urlpatterns = [
     path("signin/",views.signin ,name='signin'),
     path("editprofile/",views.editprofile ,name='editprofile'),
     path("deleteprofile/",views.deleteprofile ,name='deleteprofile'),
+    path('get_all_users_paginated/', views.get_all_users_paginated, name='get_all_users_paginated'),
 ] +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

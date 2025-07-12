@@ -8,8 +8,8 @@ from django.contrib.sessions.models import Session
 from django.contrib.auth.hashers import check_password
 from django.utils import timezone
 from home.serializers import UserListSerializer
-from django.core.paginator import Paginator
 from rest_framework.pagination import PageNumberPagination
+from rest_framework.exceptions import NotFound
 
 # Create your views here.
 
@@ -87,8 +87,18 @@ def signin(request):
         }
     return Response(response,status.HTTP_401_UNAUTHORIZED)
 
-# HOME PAGE - ALL USERS DATA
 
+
+class SafePageNumberPagination(PageNumberPagination):
+    def paginate_queryset(self, queryset, request, view=None):
+        try:
+            return super().paginate_queryset(queryset, request, view)
+        except NotFound:
+            # Instead of raising, just return empty list
+            self.page = None
+            return []
+
+# HOME PAGE - ALL USERS DATA
 csrf_exempt
 @api_view(['POST'])
 def get_all_users_paginated(request):
@@ -102,17 +112,23 @@ def get_all_users_paginated(request):
 
     users = User.objects.all().order_by('UserId')
 
-    paginator = PageNumberPagination()
-    paginator.page_size = 10
+    paginator = SafePageNumberPagination()
+    paginator.page_size = 5
 
     result_page = paginator.paginate_queryset(users, request)
+    
+    if paginator.page is None:
+        # Invalid page — handle manually
+        return Response({
+            "count": users.count(),
+            "next": None,
+            "previous": None,
+            "results": []
+        }, status=status.HTTP_200_OK)
 
     serializer = UserListSerializer(result_page, many=True, context={'request': request})
 
     return paginator.get_paginated_response(serializer.data)
-
-
-
 
 
 # EDIT PROFILE
@@ -141,7 +157,28 @@ def editprofile(request):
     else:
         return Response({"error":serializer.errors},status.HTTP_400_BAD_REQUEST)
     
+# get SENT REQUESTS DATA FOR A USER
+@csrf_exempt
+@api_view(['POST'])
+def get_sent_requests(request):
+    session_key = request.data.get("session_key")
 
+    if not validation(session_key):
+        return Response({
+            "success": False,
+            "error": "Please login"
+        }, status=status.HTTP_401_UNAUTHORIZED)
+
+    session = Session.objects.get(session_key=session_key)
+    session_data = session.get_decoded()
+    email = session_data['Email']
+    user = User.objects.get(Email=email)
+
+    sent_requests = SwapRequest.objects.filter(RequesterId=user).order_by('-SwapId')
+
+    serializer = SentSwapRequestSerializer(sent_requests, many=True, context={'request': request})
+
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 # DELETE PROFILE PHOTO
 @csrf_exempt
@@ -173,5 +210,29 @@ def deleteprofile(request):
         return Response({"message": "Profile photo deleted successfully"}, status=status.HTTP_200_OK)
     else:
         return Response({"error": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+    
+# get RECEIVED REQUESTS DATA FOR A USER
+@csrf_exempt
+@api_view(['POST'])
+def get_received_requests(request):
+    session_key = request.data.get("session_key")
+
+    if not validation(session_key):
+        return Response({
+            "success": False,
+            "error": "Please login"
+        }, status=status.HTTP_401_UNAUTHORIZED)
+
+    session = Session.objects.get(session_key=session_key)
+    session_data = session.get_decoded()
+    email = session_data['Email']
+    user = User.objects.get(Email=email)
+
+    received_requests = SwapRequest.objects.filter(ReceiverId=user).order_by('-SwapId')
+
+    serializer = ReceivedSwapRequestSerializer(received_requests, many=True)
+
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
 
 
