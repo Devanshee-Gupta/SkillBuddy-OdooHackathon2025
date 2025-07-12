@@ -37,3 +37,9 @@ export const loginUser = async (userData) => {
   const res = await API.post("/signin/", userData);
   return res.data; 
 };
+
+
+export const getAllUsers = async (userData) => {
+  const res = await API.post("/get_all_users_paginated/", userData);
+  return res.data; 
+};

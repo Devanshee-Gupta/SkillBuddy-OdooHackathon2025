@@ -132,9 +132,9 @@ const SignUpForm = () => {
                 </Form.Select>
               </Form.Group>
 
-              <div className="d-flex justify-content-center btn-colors mt-1 mb-1 p-2">
+              <div className="mt-4 text-center">
                 <Button
-                  className="border-0 bg-transparent text-white btn-colors w-100 text-uppercase"
+                  className="border-0 py-2 bg-primary text-white w-75 text-uppercase"
                   type="submit"
                 >
                   Register
@@ -145,8 +145,8 @@ const SignUpForm = () => {
                 <span className="d-flex justify-content-center">OR (Already Have account)</span>
               </div>
 
-              <div className="d-flex justify-content-center btn-colors mt-2 mb-1 p-2">
-                <a href="/login" className="btn text-white w-100 text-uppercase">
+              <div className="mt-2 text-center">
+                <a href="/login" className="btn border-0 py-2 btn-primary text-white w-75 text-uppercase">
                   LOGIN
                 </a>
               </div>

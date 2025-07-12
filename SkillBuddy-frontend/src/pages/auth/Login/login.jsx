@@ -32,7 +32,7 @@ const Login = () => {
 
     try {
       const res = await loginUser(formData);
-      const sessionKey = res.data?.session_key;
+      const sessionKey = res.session_key;
 
       if (sessionKey) {
         localStorage.setItem("session_key", sessionKey);
@@ -82,9 +82,9 @@ const Login = () => {
                 />
               </Form.Group>
 
-              <div className="login-action">
+              <div className="login-action text-center">
                 <Button
-                  className="btn-colors w-100 text-uppercase"
+                  className="btn-primary w-50 text-uppercase"
                   type="submit"
                 >
                   Login
@@ -95,8 +95,8 @@ const Login = () => {
                 <span className="d-flex justify-content-center">OR</span>
               </div>
 
-              <div className="login-action">
-                <a href="/signup" className="btn btn-colors w-100 text-uppercase">
+              <div className="login-action text-center">
+                <a href="/signup" className="btn btn-primary w-50 text-uppercase">
                   SIGN UP
                 </a>
               </div>

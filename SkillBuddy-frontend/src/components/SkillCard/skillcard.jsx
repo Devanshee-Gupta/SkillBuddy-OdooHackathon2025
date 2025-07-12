@@ -59,7 +59,7 @@ const SkillCard = () => {
           </Col>
 
           <Col xs={12} md={3} className="text-md-end text-center mt-3 mt-md-0">
-            <Button variant="info" className="text-white rounded-3 request-btn" onClick={handleOpenModal}>
+            <Button variant="info" className="text-white rounded-3 btn btn-primary" onClick={handleOpenModal}>
               Request ➤
             </Button>
             {/* <div className="mt-2 rating-text">
