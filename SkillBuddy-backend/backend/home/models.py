@@ -24,15 +24,17 @@ class User(models.Model):
             ),
         ]
     )
-
+    Address = models.TextField(max_length=100,null=True)
+    ProfilePhoto=models.ImageField(upload_to='images/',default='images/default.jpg',blank=True,null=True)
+    
     ProfileType_Choices = (
     ("public", "public"),
     ("private", "private"),
     )
-    
     ProfileType=models.CharField(max_length=7,choices=ProfileType_Choices,default="public")
-    AvailStart = models.DateTimeField()
-    AvailDeadline = models.DateTimeField()
+    
+    AvailStart = models.DateTimeField(null=True, blank=True)
+    AvailDeadline = models.DateTimeField(null=True, blank=True)
 
     def save(self, *args, **kwargs):
         # Check if the password is not already hashed
