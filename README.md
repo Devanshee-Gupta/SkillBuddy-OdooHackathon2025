@@ -1,15 +1,15 @@
 # ODOO HACKATHON 2025 - SKILL SWAP PLATFORM (Problem Statement 1) 
 
-Team Name - DOZO
-Email - devansheegupta0@gmail.com
-Project Name - SkillBuddy
-Technology Used - (React.js - Python,Django,Django REST - sqlite)
+* **Team Name** - DOZO
+* **Email** - devansheegupta0@gmail.com
+* **Project Name** - SkillBuddy
+* **Technology Used** - (React.js - Python,Django,Django REST - sqlite)
 
 # Frontend -
 To run frontend on server:
 
-    cd Project-frontend
-    npm build
+    cd SkillBuddy-frontend
+    npm install
     npm run dev
 
 # Backend -
@@ -61,11 +61,11 @@ then install python -
 Run this commands -
 
         # Windows
-            cd ProjectDirectory
+            cd SkillBuddy-backend
             python -m venv venv
 
         # macOS/Linux
-            cd ProjectDirectory
+            cd SkillBuddy-backend
             python3 -m venv venv
 
 
@@ -102,11 +102,11 @@ here venv is virtualenv's name,
 Run these commands -
 
     # Windows
-        cd ProjectName
+        cd backend
         python manage.py runserver
 
     # macOS/Linux
-        cd ProjectName
+        cd backend
         python3 manage.py runserver
 
 You can see your server running on http://127.0.0.1:8000.
@@ -120,8 +120,3 @@ If you want to change the server’s port, pass port number -
     # macOS/Linux
         python3 manage.py runserver [port_number]
 
-## Snippets for Project  -
-
-### Read operation -
-
-<img width="1440" alt="Screenshot 2024-04-17 at 2 01 46 PM" src="https://github.com/Devanshee-Gupta/Django-training-2/assets/154060860/5470e806-4084-4c90-a308-b0e0922c803a">
