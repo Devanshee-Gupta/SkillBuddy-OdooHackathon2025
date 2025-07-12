@@ -14,12 +14,12 @@ import { registerUser } from "../../../services/api";
 
 const SignUpForm = () => {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    address: "",
-    profileType: "Public",
+    FirstName: "",
+    LastName: "",
+    Email: "",
+    Password: "",
+    Address: "",
+    ProfileType: "public",
   });
 
   const handleInputChange = (e) => {
@@ -49,80 +49,82 @@ const SignUpForm = () => {
             <Form onSubmit={handleRegister}>
               <Row>
                 <Col md={6}>
-                  <Form.Group controlId="firstName">
+                  <Form.Group controlId="FirstName">
                     <Form.Label className="input_heading">First Name</Form.Label>
                     <Form.Control
                       className="border-0 inputes-box"
                       type="text"
                       placeholder="Enter your first name"
-                      name="firstName"
-                      value={formData.firstName}
+                      id="FirstName"
+                      name="FirstName"
+                      value={formData.FirstName}
                       onChange={handleInputChange}
                     />
                   </Form.Group>
                 </Col>
 
                 <Col md={6}>
-                  <Form.Group controlId="lastName">
+                  <Form.Group controlId="LastName">
                     <Form.Label className="input_heading">Last Name</Form.Label>
                     <Form.Control
                       className="border-0 inputes-box"
                       type="text"
                       placeholder="Enter your last name"
-                      name="lastName"
-                      value={formData.lastName}
+                      id="LastName"
+                      name="LastName"
+                      value={formData.LastName}
                       onChange={handleInputChange}
                     />
                   </Form.Group>
                 </Col>
               </Row>
 
-              <Form.Group controlId="email" className="mt-3">
+              <Form.Group controlId="Email" className="mt-3">
                 <Form.Label className="input_heading">Email</Form.Label>
                 <Form.Control
                   className="border-0 inputes-box"
                   type="email"
                   placeholder="Enter your email"
-                  name="email"
-                  value={formData.email}
+                  name="Email"
+                  value={formData.Email}
                   onChange={handleInputChange}
                 />
               </Form.Group>
 
-              <Form.Group controlId="password" className="mt-3">
+              <Form.Group controlId="Password" className="mt-3">
                 <Form.Label className="input_heading">Password</Form.Label>
                 <Form.Control
                   className="border-0 inputes-box"
                   type="password"
                   placeholder="Enter your password"
-                  name="password"
-                  value={formData.password}
+                  name="Password"
+                  value={formData.Password}
                   onChange={handleInputChange}
                 />
               </Form.Group>
 
-              <Form.Group controlId="address" className="mt-3">
+              <Form.Group controlId="Address" className="mt-3">
                 <Form.Label className="input_heading">Address</Form.Label>
                 <Form.Control
                   className="border-0 inputes-box"
                   type="text"
                   placeholder="Enter your address"
-                  name="address"
-                  value={formData.address}
+                  name="Address"
+                  value={formData.Address}
                   onChange={handleInputChange}
                 />
               </Form.Group>
 
-              <Form.Group controlId="profileType" className="mt-3">
+              <Form.Group controlId="ProfileType" className="mt-3">
                 <Form.Label className="input_heading">Profile Type</Form.Label>
                 <Form.Select
                   className="border-0 inputes-box"
-                  name="profileType"
-                  value={formData.profileType}
+                  name="ProfileType"
+                  value={formData.ProfileType}
                   onChange={handleInputChange}
                 >
-                  <option value="Public">Public</option>
-                  <option value="Private">Private</option>
+                  <option value="public">Public</option>
+                  <option value="private">Private</option>
                 </Form.Select>
               </Form.Group>
 

@@ -14,8 +14,8 @@ import { loginUser } from "../../../services/api";
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+    Email: "",
+    Password: "",
   });
 
   const handleInputChange = (e) => {
@@ -46,26 +46,26 @@ const Login = () => {
             <p className="text-muted">Sign in to continue</p>
 
             <Form onSubmit={handleLogin}>
-              <Form.Group controlId="email">
+              <Form.Group controlId="Email">
                 <Form.Label className="input_heading">Email</Form.Label>
                 <Form.Control
                   className="border-0 inputes-box"
-                  type="email"
-                  placeholder="Enter your email"
-                  name="email"
-                  value={formData.email}
+                  type="Email"
+                  placeholder="Enter your Email"
+                  name="Email"
+                  value={formData.Email}
                   onChange={handleInputChange}
                 />
               </Form.Group>
 
-              <Form.Group controlId="password" className="mt-3">
+              <Form.Group controlId="Password" className="mt-3">
                 <Form.Label className="input_heading">Password</Form.Label>
                 <Form.Control
                   className="border-0 inputes-box"
-                  type="password"
-                  placeholder="Enter your password"
-                  name="password"
-                  value={formData.password}
+                  type="Password"
+                  placeholder="Enter your Password"
+                  name="Password"
+                  value={formData.Password}
                   onChange={handleInputChange}
                 />
               </Form.Group>

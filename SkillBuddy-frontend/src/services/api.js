@@ -29,11 +29,11 @@ API.interceptors.response.use(
 );
 
 export const registerUser = async (userData) => {
-  const res = await API.post("/signup", userData);
+  const res = await API.post("/signup/", userData);
   return res.data; 
 };
 
 export const loginUser = async (userData) => {
-  const res = await API.post("/signin", userData);
+  const res = await API.post("/signin/", userData);
   return res.data; 
 };
